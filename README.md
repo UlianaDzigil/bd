@@ -92,3 +92,80 @@ LOGGING
 EXTENT MANAGEMENT LOCAL AUTOALLOCATE 
 SEGMENT SPACE MANAGEMENT AUTO
 DEFAULT COMPRESS FOR OLTP;
+
+
+
+create table T1(
+  2  ID number(10),
+  3  NAME varchar2(10),
+  4  IDSpec number(10)
+  5  );
+  
+  create table T2(
+  2  ID_S number(10),
+  3  NAME_S varchar2(10)
+  4  );
+  
+   insert into T2(ID_S, NAME_S) values (1, 'Спец1');
+
+1 row created.
+
+SQL> insert into T2(ID_S, NAME_S) values (2, 'Спец2');
+
+1 row created.
+
+SQL> insert into T2(ID_S, NAME_S) values (3, 'Спец3');
+
+1 row created.
+
+SQL> insert into T2(ID_S, NAME_S) values (4, 'Спец4');
+
+1 row created.
+
+SQL> insert into T2(ID_S, NAME_S) values (5, 'Спец5');
+
+1 row created.
+
+SQL> insert into T2(ID_S, NAME_S) values (6, 'Спец6');
+
+1 row created.
+
+SQL> insert into T2(ID_S, NAME_S) values (7, 'Спец7');
+
+1 row created.
+
+SQL> alter table T2 add constraint PK_T2 primary key (ID_S);
+
+Table altered.
+
+SQL> insert into T1(ID, NAME, IDSpec) values (11, 'N1', 1);
+
+1 row created.
+
+SQL> insert into T1(ID, NAME, IDSpec) values (12, 'N2', 2);
+
+1 row created.
+
+SQL> insert into T1(ID, NAME, IDSpec) values (13, 'N3', 2);
+
+1 row created.
+
+SQL> insert into T1(ID, NAME, IDSpec) values (14, 'N4', null);
+
+1 row created.
+
+SQL> insert into T1(ID, NAME, IDSpec) values (15, 'N5', 5);
+
+1 row created.
+
+SQL> insert into T1(ID, NAME, IDSpec) values (16, 'N6', 7);
+
+1 row created.
+
+SQL> insert into T1(ID, NAME, IDSpec) values (17, 'N7', 3);
+
+1 row created.
+
+SQL> alter table T1 add constraint PK_T1 primary key (ID);
+
+Table altered.
